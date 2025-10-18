@@ -93,13 +93,14 @@ deactivate
 ## Sample Output
 ### Label Summary
 
-label
-HC     2183
-AD     1122
-MCI     404
-DM       79
+| Label | Count |
+|-------|-------|
+| HC    | 2183  |
+| AD    | 1122  |
+| MCI   | 404   |
+| DM    | 79    |
 
-Label classes used for modeling: ['AD', 'DM', 'HC', 'MCI']
+**Label classes used for modeling:** `['AD', 'DM', 'HC', 'MCI']`
 
 
 ### 80/20 Train-Test Split by Language
