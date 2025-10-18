@@ -102,6 +102,7 @@ DM       79
 Label classes used for modeling: ['AD', 'DM', 'HC', 'MCI']
 
 ### 80/20 Train-Test Split by Language
+
 Language  Train_AD  Train_MCI  Train_HC  Test_AD  Test_MCI  Test_HC
 Mandarin         0        112        96        0        29       24
 English       834         89      1468      209        22      367
@@ -109,6 +110,7 @@ Greek          41         52        26       11        13        6
 Spanish        22         69       157        5        18       39
 
 ### Final Evaluation Table
+
  Dataset Language  Accuracy  Precision  Recall  F1-score  AUC-ROC
     Chou Mandarin      0.55       0.27    0.50      0.35     0.50
       Lu Mandarin      1.00       1.00    1.00      1.00      NaN
