@@ -101,27 +101,31 @@ DM       79
 
 Label classes used for modeling: ['AD', 'DM', 'HC', 'MCI']
 
+
 ### 80/20 Train-Test Split by Language
 
-Language  Train_AD  Train_MCI  Train_HC  Test_AD  Test_MCI  Test_HC
-Mandarin         0        112        96        0        29       24
-English       834         89      1468      209        22      367
-Greek          41         52        26       11        13        6
-Spanish        22         69       157        5        18       39
+| Language  | Train_AD | Train_MCI | Train_HC | Test_AD | Test_MCI | Test_HC |
+|-----------|----------|-----------|----------|---------|----------|---------|
+| Mandarin  | 0        | 112       | 96       | 0       | 29       | 24      |
+| English   | 834      | 89        | 1468     | 209     | 22       | 367     |
+| Greek     | 41       | 52        | 26       | 11      | 13       | 6       |
+| Spanish   | 22       | 69        | 157      | 5       | 18       | 39      |
 
 ### Final Evaluation Table
 
- Dataset Language  Accuracy  Precision  Recall  F1-score  AUC-ROC
-    Chou Mandarin      0.55       0.27    0.50      0.35     0.50
-      Lu Mandarin      1.00       1.00    1.00      1.00      NaN
-Delaware  English      0.64       0.32    0.50      0.39     0.50
-      Lu  English      0.45       0.23    0.50      0.31     0.50
-     WLS  English      1.00       1.00    1.00      1.00      NaN
-    Pitt  English      0.88       0.80    0.86      0.82     0.86
-Dem@Care    Greek      0.43       0.14    0.33      0.20     0.50
-   PerLA  Spanish      1.00       1.00    1.00      1.00      NaN
- Ivanova  Spanish      0.68       0.34    0.50      0.41     0.50
- Average               0.74       0.57    0.69      0.61     0.56
+| Dataset   | Language  | Accuracy | Precision | Recall | F1-score | AUC-ROC |
+|-----------|----------|----------|-----------|--------|----------|---------|
+| Chou      | Mandarin | 0.55     | 0.27      | 0.50   | 0.35     | 0.50    |
+| Lu        | Mandarin | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
+| Delaware  | English  | 0.64     | 0.32      | 0.50   | 0.39     | 0.50    |
+| Lu        | English  | 0.45     | 0.23      | 0.50   | 0.31     | 0.50    |
+| WLS       | English  | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
+| Pitt      | English  | 0.88     | 0.80      | 0.86   | 0.82     | 0.86    |
+| Dem@Care  | Greek    | 0.43     | 0.14      | 0.33   | 0.20     | 0.50    |
+| PerLA     | Spanish  | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
+| Ivanova   | Spanish  | 0.68     | 0.34      | 0.50   | 0.41     | 0.50    |
+| **Average** |          | 0.74     | 0.57      | 0.69   | 0.61     | 0.56    |
+
 
 ### How to Add New Datasets
 
