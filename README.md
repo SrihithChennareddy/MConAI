@@ -1,11 +1,11 @@
-# MConAI
-**MConAI: Multilingual Conversational AI for Low-Cost Early Alzheimer's Detection**
+## MConAI
+***MConAI: Multilingual Conversational AI for Low-Cost Early Alzheimer's Detection**
 
 This project implements an Alzheimer's disease detection model using **BERT Multilingual** (mBERT) to classify transcripts from multiple languages (English, Mandarin, Greek, Spanish). It supports stratified train-test splits and outputs evaluation metrics per dataset and language.
 
 ---
 
-## Features
+### Features
 
 - Automatic transcript parsing (`.cha` files)
 - Diagnosis labeling across multiple datasets (Delaware, Lu, Pitt, WLS, VAS, Dem@Care, Chou, PerLA, Ivanova)
@@ -17,7 +17,7 @@ This project implements an Alzheimer's disease detection model using **BERT Mult
 - Easily extendable to new datasets
 ---
 
-## Dependencies
+### Dependencies
 
 - Python 3.11+
 - PyTorch
@@ -30,20 +30,20 @@ This project implements an Alzheimer's disease detection model using **BERT Mult
 
 ---
 
-## Quick Start
+### Quick Start
 
-### 1. Go to Your Project Folder
+#### 1. Go to Your Project Folder
 
 ```bash
 cd /Users/srihith/src/M2ConAI/src
 ```
 
-### 2. Create a Virtual Environment
+#### 2. Create a Virtual Environment
 ```bash
 /opt/homebrew/opt/python@3.11/bin/python3.11 -m venv /Users/srihith/src/M2ConAI/src/venv
 ```
 
-### 3. Activate the Virtual Environment
+#### 3. Activate the Virtual Environment
 ```bash
 source /Users/srihith/src/M2ConAI/src/venv/bin/activate
 ```
@@ -52,28 +52,28 @@ Check Python version:
 ```bash
 python --version
 ```
-### 4. Install Required Packages
+#### 4. Install Required Packages
 ```bash
 pip install --upgrade pip
 pip install pandas numpy scikit-learn transformers torch tqdm
 ```
-### 5. Optional: Update Transformers and Datasets
+#### 5. Optional: Update Transformers and Datasets
 ```bash
 pip install --upgrade pip
 pip install --upgrade transformers datasets
 pip install -U transformers accelerate datasets
 pip install openpyxl
 ```
-### 6. Run the Model
+#### 6. Run the Model
 ```bash
 python model.py
 ```
-### 7. Deactivate Virtual Environment When Done
+#### 7. Deactivate Virtual Environment When Done
 ```bash
 deactivate
 ```
-## Sample Output
-### Label Summary
+### Sample Output
+#### Label Summary
 
 | Label | Count |
 |-------|-------|
@@ -85,7 +85,7 @@ deactivate
 **Label classes used for modeling:** `['AD', 'DM', 'HC', 'MCI']`
 
 
-### 80/20 Train-Test Split by Language
+#### 80/20 Train-Test Split by Language
 
 | Language  | Train_AD | Train_MCI | Train_HC | Test_AD | Test_MCI | Test_HC |
 |-----------|----------|-----------|----------|---------|----------|---------|
@@ -94,7 +94,7 @@ deactivate
 | Greek     | 41       | 52        | 26       | 11      | 13       | 6       |
 | Spanish   | 22       | 69        | 157      | 5       | 18       | 39      |
 
-### Final Evaluation Table
+#### Final Evaluation Table
 
 | Dataset   | Language  | Accuracy | Precision | Recall | F1-score | AUC-ROC |
 |-----------|----------|----------|-----------|--------|----------|---------|
@@ -110,7 +110,7 @@ deactivate
 | **Average** |          | 0.74     | 0.57      | 0.69   | 0.61     | 0.56    |
 
 
-### How to Add New Datasets
+#### How to Add New Datasets
 
 Add .cha transcript files into a new language or dataset folder.
 
