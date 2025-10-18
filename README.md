@@ -15,21 +15,6 @@ This project implements an Alzheimer's disease detection model using **BERT Mult
 - Computes standard metrics: Accuracy, Precision, Recall, F1-score, AUC-ROC
 - Handles datasets with small sample sizes gracefully
 - Easily extendable to new datasets
-
----
-
-M2ConAI/
-│
-├─ src/
-│ ├─ model.py # Main training and evaluation script
-│ └─ ... # Other utility modules if any
-│
-├─ english/ # English datasets
-├─ mandarin/ # Mandarin datasets
-├─ greek/ # Greek datasets
-├─ spanish/ # Spanish datasets
-└─ README.md
-
 ---
 
 ## Dependencies
