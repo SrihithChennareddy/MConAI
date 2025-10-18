@@ -18,8 +18,6 @@ This project implements an Alzheimer's disease detection model using **BERT Mult
 
 ---
 
-## Directory Structure
-
 M2ConAI/
 │
 ├─ src/
@@ -31,7 +29,6 @@ M2ConAI/
 ├─ greek/ # Greek datasets
 ├─ spanish/ # Spanish datasets
 └─ README.md
-
 
 ---
 
