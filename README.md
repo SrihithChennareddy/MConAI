@@ -57,32 +57,39 @@ cd /Users/srihith/src/M2ConAI/src
 ```
 
 ### 2. Create a Virtual Environment
+```bash
 /opt/homebrew/opt/python@3.11/bin/python3.11 -m venv /Users/srihith/src/M2ConAI/src/venv
+```
 
 ### 3. Activate the Virtual Environment
+```bash
 source /Users/srihith/src/M2ConAI/src/venv/bin/activate
-
+```
 
 Check Python version:
-
+```bash
 python --version
-
+```
 ### 4. Install Required Packages
+```bash
 pip install --upgrade pip
 pip install pandas numpy scikit-learn transformers torch tqdm
-
+```
 ### 5. Optional: Update Transformers and Datasets
+```bash
 pip install --upgrade pip
 pip install --upgrade transformers datasets
 pip install -U transformers accelerate datasets
 pip install openpyxl
-
+```
 ### 6. Run the Model
+```bash
 python model.py
-
+```
 ### 7. Deactivate Virtual Environment When Done
+```bash
 deactivate
-
+```
 ## Sample Output
 ### Label Summary
 
