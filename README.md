@@ -54,11 +54,12 @@ M2ConAI/
 
 ```bash
 cd /Users/srihith/src/M2ConAI/src
+```
 
-2. Create a Virtual Environment
+### 2. Create a Virtual Environment
 /opt/homebrew/opt/python@3.11/bin/python3.11 -m venv /Users/srihith/src/M2ConAI/src/venv
 
-3. Activate the Virtual Environment
+### 3. Activate the Virtual Environment
 source /Users/srihith/src/M2ConAI/src/venv/bin/activate
 
 
@@ -66,23 +67,25 @@ Check Python version:
 
 python --version
 
-4. Install Required Packages
+### 4. Install Required Packages
 pip install --upgrade pip
 pip install pandas numpy scikit-learn transformers torch tqdm
 
-5. Optional: Update Transformers and Datasets
+### 5. Optional: Update Transformers and Datasets
 pip install --upgrade pip
 pip install --upgrade transformers datasets
 pip install -U transformers accelerate datasets
 pip install openpyxl
 
-6. Run the Model
+### 6. Run the Model
 python model.py
 
-7. Deactivate Virtual Environment When Done
+### 7. Deactivate Virtual Environment When Done
 deactivate
 
-Label Summary
+## Sample Output
+### Label Summary
+
 label
 HC     2183
 AD     1122
@@ -91,14 +94,14 @@ DM       79
 
 Label classes used for modeling: ['AD', 'DM', 'HC', 'MCI']
 
-80/20 Train-Test Split by Language
+### 80/20 Train-Test Split by Language
 Language  Train_AD  Train_MCI  Train_HC  Test_AD  Test_MCI  Test_HC
 Mandarin         0        112        96        0        29       24
 English       834         89      1468      209        22      367
 Greek          41         52        26       11        13        6
 Spanish        22         69       157        5        18       39
 
-Final Evaluation Table
+### Final Evaluation Table
  Dataset Language  Accuracy  Precision  Recall  F1-score  AUC-ROC
     Chou Mandarin      0.55       0.27    0.50      0.35     0.50
       Lu Mandarin      1.00       1.00    1.00      1.00      NaN
@@ -111,7 +114,7 @@ Dem@Care    Greek      0.43       0.14    0.33      0.20     0.50
  Ivanova  Spanish      0.68       0.34    0.50      0.41     0.50
  Average               0.74       0.57    0.69      0.61     0.56
 
-How to Add New Datasets
+### How to Add New Datasets
 
 Add .cha transcript files into a new language or dataset folder.
 
@@ -121,10 +124,10 @@ Make sure the labels match one of the supported classes: AD, DM, HC, MCI.
 
 Run python model.py to include the new dataset in training and evaluation.
 
-License
+### License
 
 MIT License
 
-Author
+### Author
 
 Srihith Chennareddy
