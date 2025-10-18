@@ -1,5 +1,5 @@
 ## MConAI
-***MConAI: Multilingual Conversational AI for Low-Cost Early Alzheimer's Detection**
+**MConAI: Multilingual Conversational AI for Low-Cost Early Alzheimer's Detection**
 
 This project implements an Alzheimer's disease detection model using **BERT Multilingual** (mBERT) to classify transcripts from multiple languages (English, Mandarin, Greek, Spanish). It supports stratified train-test splits and outputs evaluation metrics per dataset and language.
 
