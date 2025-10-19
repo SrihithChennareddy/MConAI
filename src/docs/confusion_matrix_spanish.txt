@@ -1,0 +1,53 @@
+# Spanish Confusion Matrix Explanation
+
+Matrix layout (True labels vs Predicted labels):
+
+           DM   AD   MCI  HC
+True DM     0    0    0    0
+True AD     0   15    3    2
+True MCI    0    1   13    3
+True HC     0    1    5   33
+
+Test split counts:
+- DM: 0
+- AD: 20
+- MCI: 17
+- HC: 39
+
+Explanation:
+
+1. Diagonal cells (correct predictions):
+   - AD → AD: 15
+   - MCI → MCI: 13
+   - HC → HC: 33
+
+2. Off-diagonal cells (misclassifications):
+   - AD → MCI: 3, AD → HC: 2
+   - MCI → AD: 1, MCI → HC: 3
+   - HC → AD: 1, HC → MCI: 5
+
+3. Verification with test split:
+   - AD: 15 + 3 + 2 = 20 ✅
+   - MCI: 1 + 13 + 3 = 17 ✅
+   - HC: 1 + 5 + 33 = 39 ✅
+
+4. Metrics:
+
+   Accuracy (overall):
+   (15 + 13 + 33) / (20 + 17 + 39) = 61 / 76 ≈ 0.803
+
+   Recall per class:
+   - AD recall = 15 / 20 = 0.75
+   - MCI recall = 13 / 17 ≈ 0.765
+   - HC recall = 33 / 39 ≈ 0.846
+
+   Precision per class:
+   - AD precision = 15 / (15 + 1 + 1) = 15 / 17 ≈ 0.882
+   - MCI precision = 13 / (3 + 13 + 5) = 13 / 21 ≈ 0.619
+   - HC precision = 33 / (2 + 3 + 33) = 33 / 38 ≈ 0.868
+
+5. Key insights:
+   - HC is classified well (high recall & precision)
+   - AD mostly accurate; small confusion with MCI and HC
+   - MCI has lower precision; confused with AD or HC
+   - DM class is absent in this Spanish test split
