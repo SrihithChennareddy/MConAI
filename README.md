@@ -8,7 +8,7 @@ This project implements an Alzheimer's disease detection using model **BERT Mult
 ### Features
 
 - Automatic transcript parsing (`.cha` files)
-- Diagnosis labeling across multiple datasets (Delaware, Lu, Pitt, WLS, VAS, Dem@Care, Chou, PerLA, Ivanova)
+- Diagnosis labeling across multiple datasets (Delaware, Lu, Pitt, WLS, Chou, PerLA, Ivanova)
 - Supports four classes: `AD`, `DM`, `HC`, `MCI`
 - Multilingual classification using **BERT multilingual cased**
 - Stratified train-test splitting for stable evaluation
@@ -54,21 +54,15 @@ python --version
 ```
 #### 4. Install Required Packages
 ```bash
+# Upgrade pip and install required packages
 pip install --upgrade pip
-pip install pandas numpy scikit-learn transformers torch tqdm
+pip install --upgrade pandas numpy scikit-learn torch tqdm transformers datasets accelerate openpyxl
 ```
-#### 5. Optional: Update Transformers and Datasets
-```bash
-pip install --upgrade pip
-pip install --upgrade transformers datasets
-pip install -U transformers accelerate datasets
-pip install openpyxl
-```
-#### 6. Run the Model
+#### 5. Run the Model
 ```bash
 python model.py
 ```
-#### 7. Deactivate Virtual Environment When Done
+#### 6. Deactivate Virtual Environment When Done
 ```bash
 deactivate
 ```
@@ -77,9 +71,9 @@ deactivate
 
 | Label | Count |
 |-------|-------|
-| HC    | 2183  |
-| AD    | 1122  |
-| MCI   | 404   |
+| HC    | 2151  |
+| AD    | 1144  |
+| MCI   | 339   |
 | DM    | 79    |
 
 **Label classes used for modeling:** `['AD', 'DM', 'HC', 'MCI']`
@@ -91,23 +85,23 @@ deactivate
 |-----------|----------|-----------|----------|---------|----------|---------|
 | Mandarin  | 0        | 112       | 96       | 0       | 29       | 24      |
 | English   | 834      | 89        | 1468     | 209     | 22       | 367     |
-| Greek     | 41       | 52        | 26       | 11      | 13       | 6       |
-| Spanish   | 22       | 69        | 157      | 5       | 18       | 39      |
+| Spanish   | 81       | 69        | 157      | 20      | 18       | 39      |
+
 
 #### Final Evaluation Table
 
-| Dataset   | Language  | Accuracy | Precision | Recall | F1-score | AUC-ROC |
-|-----------|----------|----------|-----------|--------|----------|---------|
-| Chou      | Mandarin | 0.55     | 0.27      | 0.50   | 0.35     | 0.50    |
-| Lu        | Mandarin | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
-| Delaware  | English  | 0.64     | 0.32      | 0.50   | 0.39     | 0.50    |
-| Lu        | English  | 0.45     | 0.23      | 0.50   | 0.31     | 0.50    |
-| WLS       | English  | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
-| Pitt      | English  | 0.88     | 0.80      | 0.86   | 0.82     | 0.86    |
-| Dem@Care  | Greek    | 0.43     | 0.14      | 0.33   | 0.20     | 0.50    |
-| PerLA     | Spanish  | 1.00     | 1.00      | 1.00   | 1.00     | NaN     |
-| Ivanova   | Spanish  | 0.68     | 0.34      | 0.50   | 0.41     | 0.50    |
-| **Average** |          | 0.74     | 0.57      | 0.69   | 0.61     | 0.56    |
+| Dataset   | Language  | Accuracy | Precision | Recall | F1-score |
+|-----------|----------|----------|-----------|--------|----------|
+| Chou      | Mandarin | 0.55     | 0.27      | 0.50   | 0.35     |
+| Lu        | Mandarin | 1.00     | 1.00      | 1.00   | 1.00     |
+| Delaware  | English  | 0.64     | 0.32      | 0.50   | 0.39     |
+| Lu        | English  | 0.45     | 0.23      | 0.50   | 0.31     |
+| WLS       | English  | 1.00     | 1.00      | 1.00   | 1.00     |
+| Pitt      | English  | 0.88     | 0.80      | 0.86   | 0.82     |
+| PerLA     | Spanish  | 1.00     | 1.00      | 1.00   | 1.00     |
+| Ivanova   | Spanish  | 0.68     | 0.34      | 0.50   | 0.41     |
+| **Average** |        | 0.74     | 0.57      | 0.69   | 0.61     |
+
 
 
 #### How to Add New Datasets
