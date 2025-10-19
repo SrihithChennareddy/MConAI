@@ -12,7 +12,7 @@ This project implements an Alzheimer's disease detection using model **BERT Mult
 - Supports four classes: `AD`, `DM`, `MCI`, `HC`
 - Multilingual classification using **BERT multilingual cased**
 - Stratified train-test splitting for stable evaluation
-- Computes standard metrics: Accuracy, Precision, Recall, F1-score, AUC-ROC
+- Computes standard metrics: Accuracy, Precision, Recall, F1-score
 - Handles datasets with small sample sizes gracefully
 - Easily extendable to new datasets
 ---
