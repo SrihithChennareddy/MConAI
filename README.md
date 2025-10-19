@@ -92,15 +92,15 @@ deactivate
 
 | Dataset   | Language  | Accuracy | Precision | Recall | F1-score |
 |-----------|----------|----------|-----------|--------|----------|
-| Chou      | Mandarin | 0.55     | 0.27      | 0.50   | 0.35     |
+| Chou      | Mandarin | 0.68     | 0.68      | 0.67   | 0.67     |
 | Lu        | Mandarin | 1.00     | 1.00      | 1.00   | 1.00     |
-| Delaware  | English  | 0.64     | 0.32      | 0.50   | 0.39     |
-| Lu        | English  | 0.45     | 0.23      | 0.50   | 0.31     |
+| Delaware  | English  | 0.70     | 0.68      | 0.64   | 0.65     |
+| Lu        | English  | 0.82     | 0.86      | 0.83   | 0.82     |
 | WLS       | English  | 1.00     | 1.00      | 1.00   | 1.00     |
-| Pitt      | English  | 0.88     | 0.80      | 0.86   | 0.82     |
+| Pitt      | English  | 0.91     | 0.80      | 0.90   | 0.87     |
 | PerLA     | Spanish  | 1.00     | 1.00      | 1.00   | 1.00     |
-| Ivanova   | Spanish  | 0.68     | 0.34      | 0.50   | 0.41     |
-| **Average** |        | 0.74     | 0.57      | 0.69   | 0.61     |
+| Ivanova   | Spanish  | 0.54     | 0.18      | 0.33   | 0.23     |
+| **Average** |        | 0.83     | 0.78      | 0.80   | 0.78     |
 
 
 
