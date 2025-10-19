@@ -18,7 +18,8 @@ def get_diagnosis_label(filepath):
     elif "english/lu/dementia" in path: return "DM", "English", "Lu"
     elif "english/pitt/control" in path: return "HC", "English", "Pitt"
     elif "english/pitt/dementia" in path: return "AD", "English", "Pitt"
-    elif "english/wls" in path: return "HC", "English", "WLS"
+    elif "english/wls/hc" in path: return "HC", "English", "WLS"
+    elif "english/wls/ad" in path: return "AD", "English", "WLS"
 
     # Mandarin
     elif "mandarin/chou/hc" in path: return "HC", "Mandarin", "Chou"
