@@ -156,10 +156,16 @@ def main():
 
     # ---------- 8. 80/20 Train-Test Split ----------
     split_distribution = []
-    for lang in df['language'].unique():
+    language_order = ["English", "Spanish", "Mandarin"]  # enforce consistent order
+
+    for lang in language_order:
+        if lang not in df['language'].unique():
+            continue
+
         lang_subset = df[df['language'] == lang]
         X_lang = lang_subset['text'].tolist()
         y_lang = lang_subset['label_enc'].tolist()
+
         try:
             X_train_lang, X_test_lang, y_train_lang, y_test_lang = train_test_split(
                 X_lang, y_lang, test_size=0.2, stratify=y_lang, random_state=42
@@ -168,20 +174,42 @@ def main():
             X_train_lang, X_test_lang, y_train_lang, y_test_lang = train_test_split(
                 X_lang, y_lang, test_size=0.2, random_state=42
             )
+
         counts_train = pd.Series(y_train_lang).value_counts()
         counts_test = pd.Series(y_test_lang).value_counts()
-        split_distribution.append({
-            "Language": lang,
-            "Train_AD": counts_train.get(label_encoder.transform(['AD'])[0], 0),
-            "Train_MCI": counts_train.get(label_encoder.transform(['MCI'])[0], 0),
-            "Train_HC": counts_train.get(label_encoder.transform(['HC'])[0], 0),
-            "Test_AD": counts_test.get(label_encoder.transform(['AD'])[0], 0),
-            "Test_MCI": counts_test.get(label_encoder.transform(['MCI'])[0], 0),
-            "Test_HC": counts_test.get(label_encoder.transform(['HC'])[0], 0),
-        })
+
+        # Build row with all Train first, then Test
+        row = {"Language": lang}
+
+        # Train counts
+        for lbl in ["DM", "AD", "MCI", "HC"]:
+            if lbl in label_encoder.classes_:
+                enc_val = label_encoder.transform([lbl])[0]
+                row[f"Train_{lbl}"] = counts_train.get(enc_val, 0)
+            else:
+                row[f"Train_{lbl}"] = 0
+
+        # Test counts
+        for lbl in ["DM", "AD", "MCI", "HC"]:
+            if lbl in label_encoder.classes_:
+                enc_val = label_encoder.transform([lbl])[0]
+                row[f"Test_{lbl}"] = counts_test.get(enc_val, 0)
+            else:
+                row[f"Test_{lbl}"] = 0
+
+        split_distribution.append(row)
+
+    # Create DataFrame with consistent column order
+    split_df = pd.DataFrame(split_distribution)[
+        ["Language", "Train_DM", "Train_AD", "Train_MCI", "Train_HC",
+         "Test_DM", "Test_AD", "Test_MCI", "Test_HC"]
+    ]
 
     print("\n--- 80/20 Train-Test Split by Language ---")
-    print(pd.DataFrame(split_distribution).to_string(index=False))
+    print(split_df.to_string(index=False))
+
+
+
 
     # ---------- 9. Train/Test & Evaluation (Single 80/20 Split) ----------
     tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")
@@ -255,23 +283,42 @@ def main():
 
     # Dataset-level average row
     avg_row_df = {"Dataset": "Average", "Language": "All"}
-    avg_row_df.update({col: round(eval_df[col].mean(), 2) for col in ["accuracy", "precision", "recall", "f1"]})
+    avg_row_df.update({
+        col: round(eval_df[col].mean(), 2)
+        for col in ["accuracy", "precision", "recall", "f1"]
+    })
     eval_df = pd.concat([eval_df, pd.DataFrame([avg_row_df])], ignore_index=True)
 
     print("\n=== Dataset-Level Evaluation Table ===")
     print(eval_df.to_string(index=False))
 
-    # Language-level aggregated table
+    # ---------- Language-level aggregated table ----------
     lang_table = (
-        eval_df.groupby("Language")[["accuracy", "precision", "recall", "f1"]]
-        .mean().reset_index().round(2)
+        eval_df[eval_df["Language"] != "All"]
+        .groupby("Language")[["accuracy", "precision", "recall", "f1"]]
+        .mean()
+        .reset_index()
+        .round(2)
     )
-    avg_row_lang = {"Language": "Average"}
-    avg_row_lang.update({col: round(lang_table[col].mean(), 2) for col in ["accuracy", "precision", "recall", "f1"]})
+
+    # Enforce consistent language order
+    language_order = ["English", "Spanish", "Mandarin"]
+    lang_table["Language"] = pd.Categorical(lang_table["Language"], categories=language_order, ordered=True)
+    lang_table = lang_table.sort_values("Language")
+
+    # Add final average row
+    avg_row_lang = {
+        "Language": "Average",
+        "accuracy": round(lang_table["accuracy"].mean(), 2),
+        "precision": round(lang_table["precision"].mean(), 2),
+        "recall": round(lang_table["recall"].mean(), 2),
+        "f1": round(lang_table["f1"].mean(), 2),
+    }
     lang_table = pd.concat([lang_table, pd.DataFrame([avg_row_lang])], ignore_index=True)
 
     print("\n=== Language-Level Aggregated Evaluation Table ===")
     print(lang_table.to_string(index=False))
+
 
 
 if __name__ == "__main__":
