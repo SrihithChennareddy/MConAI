@@ -1,0 +1,56 @@
+# English Confusion Matrix Explanation
+
+Matrix layout (True labels vs Predicted labels):
+
+           Predicted
+           AD   MCI  HC
+True AD    173   10   26
+True MCI    3    18    1
+True HC    30     4   333
+
+Test split counts:
+- AD: 209
+- MCI: 22
+- HC: 367
+
+Explanation:
+
+1. Diagonal cells (bold in figure) are correct predictions:
+   - AD correctly predicted as AD: 173
+   - MCI correctly predicted as MCI: 18
+   - HC correctly predicted as HC: 333
+
+2. Off-diagonal cells are misclassifications:
+   - AD predicted as MCI: 10
+   - AD predicted as HC: 26
+   - MCI predicted as AD: 3
+   - MCI predicted as HC: 1
+   - HC predicted as AD: 30
+   - HC predicted as MCI: 4
+
+3. Verification with test split:
+   - AD: 173 + 10 + 26 = 209 ✅
+   - MCI: 3 + 18 + 1 = 22 ✅
+   - HC: 30 + 4 + 333 = 367 ✅
+
+4. Metrics:
+
+   Accuracy:
+   (173 + 18 + 333) / 598 ≈ 0.876
+
+   Recall per class:
+   - AD recall = 173 / 209 ≈ 0.827
+   - MCI recall = 18 / 22 ≈ 0.818
+   - HC recall = 333 / 367 ≈ 0.907
+
+   Precision per class:
+   - AD precision = 173 / (173 + 3 + 30) ≈ 0.84
+   - MCI precision = 18 / (10 + 18 + 4) ≈ 0.563
+   - HC precision = 333 / (26 + 1 + 333) ≈ 0.925
+
+5. Key insights:
+   - HC is classified very well (high precision and recall)
+   - AD mostly accurate, small confusion with HC
+   - MCI has lower precision; often confused with AD or HC
+   - MCI is subtle and harder to distinguish in dementia datasets
+
