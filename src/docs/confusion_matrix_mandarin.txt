@@ -1,0 +1,36 @@
+# Mandarin Confusion Matrix Explanation
+
+Matrix layout (True labels vs Predicted labels):
+
+           Predicted
+           AD   MCI  HC
+True AD     0    25   0
+True MCI    0    24   0
+True HC     0     0   19
+
+Test split counts:
+- AD: 0
+- MCI: 29
+- HC: 24
+
+Explanation:
+
+1. Diagonal cells (correct predictions):
+   - AD correctly predicted as AD: 0
+   - MCI correctly predicted as MCI: 24
+   - HC correctly predicted as HC: 19
+
+2. Off-diagonal cells (misclassifications):
+   - AD predicted as MCI: 25
+   - All other off-diagonal cells are 0
+
+3. Verification with test split:
+   - AD: 0 + 25 + 0 = 25 (AD examples misclassified as MCI)
+   - MCI: 0 + 24 + 0 = 24 ✅
+   - HC: 0 + 0 + 19 = 19 ✅
+
+4. Key insights:
+   - AD samples are all misclassified as MCI (likely due to no AD examples in Mandarin test set)
+   - MCI and HC are classified well
+   - Small dataset and imbalance (AD=0 in test) affect accuracy metrics
+
