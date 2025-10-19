@@ -2,35 +2,55 @@
 
 Matrix layout (True labels vs Predicted labels):
 
-           Predicted
-           AD   MCI  HC
-True AD     0    25   0
-True MCI    0    24   0
-True HC     0     0   19
+           DM   AD   MCI  HC
+True DM     8    1    1    0
+True AD     0    0    0    0
+True MCI    0    2   25    1
+True HC     2    0    3   19
 
 Test split counts:
+- DM: 10
 - AD: 0
-- MCI: 29
+- MCI: 28
 - HC: 24
 
 Explanation:
 
 1. Diagonal cells (correct predictions):
-   - AD correctly predicted as AD: 0
-   - MCI correctly predicted as MCI: 24
-   - HC correctly predicted as HC: 19
+   - DM → DM: 8
+   - MCI → MCI: 25
+   - HC → HC: 19
 
 2. Off-diagonal cells (misclassifications):
-   - AD predicted as MCI: 25
-   - All other off-diagonal cells are 0
+   - DM → AD: 1, DM → MCI: 1
+   - MCI → AD: 2, MCI → HC: 1
+   - HC → DM: 2, HC → MCI: 3
 
 3. Verification with test split:
-   - AD: 0 + 25 + 0 = 25 (AD examples misclassified as MCI)
-   - MCI: 0 + 24 + 0 = 24 ✅
-   - HC: 0 + 0 + 19 = 19 ✅
+   - DM: 8 + 1 + 1 + 0 = 10 ✅
+   - AD: 0 + 0 + 0 + 0 = 0 ✅
+   - MCI: 0 + 2 + 25 + 1 = 28 ✅
+   - HC: 2 + 0 + 3 + 19 = 24 ✅
 
-4. Key insights:
-   - AD samples are all misclassified as MCI (likely due to no AD examples in Mandarin test set)
-   - MCI and HC are classified well
-   - Small dataset and imbalance (AD=0 in test) affect accuracy metrics
+4. Metrics:
 
+   Accuracy (overall):
+   (8 + 25 + 19) / (10 + 0 + 28 + 24) = 52 / 62 ≈ 0.839
+
+   Recall per class:
+   - DM recall = 8 / 10 = 0.8
+   - MCI recall = 25 / 28 ≈ 0.893
+   - HC recall = 19 / 24 ≈ 0.792
+   - AD recall = N/A (no samples in test set)
+
+   Precision per class:
+   - DM precision = 8 / (8 + 0 + 0 + 2) = 8 / 10 = 0.8
+   - MCI precision = 25 / (1 + 0 + 25 + 3) = 25 / 29 ≈ 0.862
+   - HC precision = 19 / (0 + 0 + 1 + 19) = 19 / 20 = 0.95
+   - AD precision = N/A (no samples in test set)
+
+5. Key insights:
+   - HC and MCI are classified very well (high precision & recall)
+   - DM is mostly correct; minor confusion with AD and MCI
+   - AD class is absent in the test set
+   - Overall model accuracy is ~84%
