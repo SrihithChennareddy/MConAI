@@ -40,12 +40,12 @@ cd /Users/srihith/src/M2ConAI/src
 
 #### 2. Create a Virtual Environment
 ```bash
-/opt/homebrew/opt/python@3.11/bin/python3.11 -m venv /Users/srihith/src/M2ConAI/src/venv
+/opt/homebrew/opt/python@3.11/bin/python3.11 -m venv /Users/srihith/src/MConAI/src/venv
 ```
 
 #### 3. Activate the Virtual Environment
 ```bash
-source /Users/srihith/src/M2ConAI/src/venv/bin/activate
+source /Users/srihith/src/MConAI/src/venv/bin/activate
 ```
 
 Check Python version:
