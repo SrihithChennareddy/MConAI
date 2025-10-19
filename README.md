@@ -90,17 +90,12 @@ deactivate
 
 #### Final Evaluation Table
 
-| Dataset   | Language  | Accuracy | Precision | Recall | F1-score |
-|-----------|----------|----------|-----------|--------|----------|
-| Chou      | Mandarin | 0.68     | 0.68      | 0.67   | 0.67     |
-| Lu        | Mandarin | 1.00     | 1.00      | 1.00   | 1.00     |
-| Delaware  | English  | 0.70     | 0.68      | 0.64   | 0.65     |
-| Lu        | English  | 0.82     | 0.86      | 0.83   | 0.82     |
-| WLS       | English  | 1.00     | 1.00      | 1.00   | 1.00     |
-| Pitt      | English  | 0.91     | 0.80      | 0.90   | 0.87     |
-| PerLA     | Spanish  | 1.00     | 1.00      | 1.00   | 1.00     |
-| Ivanova   | Spanish  | 0.54     | 0.18      | 0.33   | 0.23     |
-| **Average** |        | 0.83     | 0.78      | 0.80   | 0.78     |
+| Language  | Accuracy | Precision | Recall | F1-score |
+|----------|----------|-----------|--------|----------|
+| Mandarin | 0.84     | 0.82      | 0.83   | 0.81     |
+| English  | 0.87     | 0.84      | 0.84   | 0.82     |
+| Spanish  | 0.78     | 0.72      | 0.74   | 0.71     |
+| **Avg**  | 0.83     | 0.79      | 0.80   | 0.78     |
 
 
 
