@@ -83,19 +83,19 @@ deactivate
 
 | Language  | Train_AD | Train_MCI | Train_HC | Test_AD | Test_MCI | Test_HC |
 |-----------|----------|-----------|----------|---------|----------|---------|
-| Mandarin  | 0        | 112       | 96       | 0       | 29       | 24      |
 | English   | 834      | 89        | 1468     | 209     | 22       | 367     |
 | Spanish   | 81       | 69        | 157      | 20      | 18       | 39      |
+| Mandarin  | 0        | 112       | 96       | 0       | 29       | 24      |
 
 
 #### Final Evaluation Table
 
 | Language  | Accuracy | Precision | Recall | F1-score |
 |----------|----------|-----------|--------|----------|
-| Mandarin | 0.84     | 0.82      | 0.83   | 0.81     |
 | English  | 0.87     | 0.84      | 0.84   | 0.82     |
 | Spanish  | 0.78     | 0.72      | 0.74   | 0.71     |
 | **Avg**  | 0.83     | 0.79      | 0.80   | 0.78     |
+| Mandarin | 0.84     | 0.82      | 0.83   | 0.81     |
 
 
 
