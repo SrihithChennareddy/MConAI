@@ -35,7 +35,7 @@ This project implements an Alzheimer's disease detection using model **Multiling
 #### 1. Go to Your Project Folder
 
 ```bash
-cd /Users/srihith/src/M2ConAI/src
+cd /Users/srihith/src/MConAI/src
 ```
 
 #### 2. Create a Virtual Environment
