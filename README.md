@@ -15,6 +15,7 @@ MConAI is a multilingual AI framework for early Alzheimer’s disease detection 
 - Stratified train-test splitting for stable evaluation
 - Computes standard metrics: Accuracy, Precision, Recall, F1-score
 - Handles datasets with small sample sizes gracefully
+- Cross-lingual evaluation across languages
 - Easily extendable to new datasets
 ---
 
